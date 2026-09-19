@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Location Title</title>
+  <link rel="stylesheet" href="/overlay.css?v=3" />
+</head>
+<body>
+  <main id="cinematic" class="cinematic theme-morkborg" aria-live="polite">
+    <div class="shade"></div>
+
+    <section class="scene scene-mork" aria-hidden="true">
+      <div id="skullRain" class="skull-rain"></div>
+      <div class="mork-title-wrap"><h1 id="morkTitle" class="mork-title"></h1><p id="morkSubtitle" class="mork-subtitle"></p></div>
+    </section>
+
+    <section class="scene scene-lancer" aria-hidden="true">
+      <div class="glitch-field"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="lancer-title-wrap"><h1 id="lancerTitle" class="lancer-title"></h1><p id="lancerSubtitle" class="lancer-subtitle"></p></div>
+      <img class="mech-arm" src="/assets/lancer-mech-arm.png" alt="" />
+      <div class="arm-trail arm-trail-a"></div><div class="arm-trail arm-trail-b"></div><div class="arm-trail arm-trail-c"></div>
+    </section>
+
+    <section class="scene scene-dnd" aria-hidden="true">
+      <div class="tavern-sign-wrap">
+        <img class="tavern-sign" src="/assets/dnd-tavern-sign.png" alt="" />
+        <div class="tavern-copy"><h1 id="dndTitle" class="dnd-title"></h1><p id="dndSubtitle" class="dnd-subtitle"></p></div>
+      </div>
+    </section>
+
+    <section class="scene scene-warhammer" aria-hidden="true">
+      <div class="wh-assembly">
+        <img class="wh-center" src="/assets/wh-center-plate.png" alt="" />
+        <img class="wh-left" src="/assets/wh-left-frame.png" alt="" />
+        <img class="wh-right" src="/assets/wh-right-frame.png" alt="" />
+        <img class="wh-crest" src="/assets/wh-top-crest.png" alt="" />
+        <div class="wh-copy"><h1 id="whTitle" class="wh-title"></h1><p id="whSubtitle" class="wh-subtitle"></p></div>
+        <div id="sparkField" class="spark-field"></div>
+      </div>
+    </section>
+  </main>
+  <script>
+const params=new URLSearchParams(location.search);const theme=params.get('theme')||'morkborg';let title=params.get('title')||'ТЁМНАЯ ЛОЩИНА';let subtitle=params.get('subtitle')||'ВХОД В ЛОКАЦИЮ';if(theme==='warhammer'){title=title.replaceAll('Ё','Е');subtitle=subtitle.replaceAll('Ё','Е')};document.documentElement.style.setProperty('--darkness',params.get('darkness')||'.62');const c=document.querySelector('#cinematic');c.className='cinematic theme-'+theme;function set(id,v){document.querySelector(id).textContent=v}set('#morkTitle',title);set('#morkSubtitle',subtitle);set('#lancerTitle',title);set('#lancerSubtitle',subtitle);set('#dndTitle',title);set('#dndSubtitle',subtitle);set('#whSubtitle',subtitle);document.querySelector('#morkTitle').dataset.title=title;document.querySelector('#lancerTitle').dataset.title=title;if(title.length>36)c.classList.add('title-xlong');else if(title.length>24)c.classList.add('title-long');if(theme==='morkborg'){const f=document.querySelector('#skullRain'),srcs=['/assets/mork-skull-1.png','/assets/mork-skull-2.png','/assets/mork-skull-3.png','/assets/mork-skull-4.png'];for(let i=0;i<10;i++){const img=document.createElement('img');img.src=srcs[i%4];img.className='falling-skull skull-'+(i%4);img.style.setProperty('--x',(5+((i*17)%92))+'vw');img.style.setProperty('--size',(110+((i*43)%180))+'px');img.style.setProperty('--delay',((i%5)*90)+'ms');img.style.setProperty('--fall',(900+((i*137)%650))+'ms');img.style.setProperty('--rot',(-35+((i*29)%70))+'deg');if(i%4===3)img.classList.add('skull-green');f.append(img)}}if(theme==='warhammer'){const h=document.querySelector('#whTitle');[...title].forEach((ch,i)=>{const s=document.createElement('span');s.className=ch===' '?'wh-space':'wh-letter';s.textContent=ch===' '?'\u00A0':ch;s.style.setProperty('--i',i);h.append(s)});const sparks=document.querySelector('#sparkField');for(let i=0;i<10;i++){const s=document.createElement('i');s.style.setProperty('--sx',(10+((i*37)%80))+'%');s.style.setProperty('--sy',(35+((i*19)%30))+'%');s.style.setProperty('--sd',(760+i*55)+'ms');sparks.append(s)}}requestAnimationFrame(()=>document.body.classList.add('ready'));
+</script>
+</body>
+</html>
