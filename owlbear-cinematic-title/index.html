@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinematic Location Titles</title>
+  <link rel="stylesheet" href="/style.css?v=3" />
+</head>
+<body>
+  <main class="panel">
+    <div class="eyebrow">CINEMATIC TITLE / GM</div>
+    <h1>Вход в локацию</h1>
+    <p class="hint">Выбери готовую тему, введи название и покажи заставку всем игрокам. Последняя тема запоминается на устройстве GM.</p>
+
+    <fieldset class="theme-field">
+      <legend>Тема</legend>
+      <div class="theme-grid" id="themeGrid">
+        <button class="theme-card theme-card--morkborg" type="button" data-theme="morkborg" aria-pressed="true">
+          <strong>MÖRK BORG</strong><span>черепной дождь / высокий контраст</span>
+        </button>
+        <button class="theme-card theme-card--lancer" type="button" data-theme="lancer" aria-pressed="false">
+          <strong>LANCER</strong><span>мех / cyber-glitch / reveal</span>
+        </button>
+        <button class="theme-card theme-card--dnd" type="button" data-theme="dnd" aria-pressed="false">
+          <strong>D&D</strong><span>таверная вывеска / подъём</span>
+        </button>
+        <button class="theme-card theme-card--warhammer" type="button" data-theme="warhammer" aria-pressed="false">
+          <strong>WARHAMMER</strong><span>металл / готическая сборка</span>
+        </button>
+      </div>
+      <input id="theme" type="hidden" value="morkborg" />
+    </fieldset>
+
+    <label class="field">
+      <span>Заголовок</span>
+      <input id="title" maxlength="80" value="" placeholder="НАЗВАНИЕ ЛОКАЦИИ" autocomplete="off" />
+    </label>
+
+    <label class="field">
+      <span>Подзаголовок <em>необязательно</em></span>
+      <input id="subtitle" maxlength="120" placeholder="НЕОБЯЗАТЕЛЬНАЯ ВТОРАЯ СТРОКА" autocomplete="off" />
+    </label>
+
+    <div class="compact-grid">
+      <label class="field">
+        <span>Время</span>
+        <select id="duration">
+          <option value="3500">3,5 сек.</option>
+          <option value="5000" selected>5 сек.</option>
+          <option value="7000">7 сек.</option>
+          <option value="10000">10 сек.</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Затемнение</span>
+        <input id="darkness" type="range" min="0.35" max="0.85" value="0.62" step="0.01" />
+        <div class="range-row"><span>мягче</span><output id="darknessValue">62%</output><span>жёстче</span></div>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="show" class="primary" type="button">ПОКАЗАТЬ ВСЕМ</button>
+      <button id="hide" class="secondary" type="button">СКРЫТЬ</button>
+    </div>
+
+    <div id="status" class="status">Подключение к Owlbear Rodeo…</div>
+    <div id="roleNotice" class="role-notice" hidden>Управление титрами доступно только GM.</div>
+  </main>
+  <script type="module" src="/main.js?v=3"></script>
+</body>
+</html>

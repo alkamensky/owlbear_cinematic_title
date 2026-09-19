@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Location Title</title>
+  <link rel="stylesheet" href="/overlay.css?v=3" />
+</head>
+<body>
+  <main id="cinematic" class="cinematic theme-morkborg" aria-live="polite">
+    <div class="shade"></div>
+
+    <section class="scene scene-mork" aria-hidden="true">
+      <div id="skullRain" class="skull-rain"></div>
+      <div class="mork-title-wrap"><h1 id="morkTitle" class="mork-title"></h1><p id="morkSubtitle" class="mork-subtitle"></p></div>
+    </section>
+
+    <section class="scene scene-lancer" aria-hidden="true">
+      <div class="glitch-field"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="lancer-title-wrap"><h1 id="lancerTitle" class="lancer-title"></h1><p id="lancerSubtitle" class="lancer-subtitle"></p></div>
+      <img class="mech-arm" src="/assets/lancer-mech-arm.png" alt="" />
+      <div class="arm-trail arm-trail-a"></div><div class="arm-trail arm-trail-b"></div><div class="arm-trail arm-trail-c"></div>
+    </section>
+
+    <section class="scene scene-dnd" aria-hidden="true">
+      <div class="tavern-sign-wrap">
+        <img class="tavern-sign" src="/assets/dnd-tavern-sign.png" alt="" />
+        <div class="tavern-copy"><h1 id="dndTitle" class="dnd-title"></h1><p id="dndSubtitle" class="dnd-subtitle"></p></div>
+      </div>
+    </section>
+
+    <section class="scene scene-warhammer" aria-hidden="true">
+      <div class="wh-assembly">
+        <img class="wh-center" src="/assets/wh-center-plate.png" alt="" />
+        <img class="wh-left" src="/assets/wh-left-frame.png" alt="" />
+        <img class="wh-right" src="/assets/wh-right-frame.png" alt="" />
+        <img class="wh-crest" src="/assets/wh-top-crest.png" alt="" />
+        <div class="wh-copy"><h1 id="whTitle" class="wh-title"></h1><p id="whSubtitle" class="wh-subtitle"></p></div>
+        <div id="sparkField" class="spark-field"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/overlay.js?v=3"></script>
+</body>
+</html>

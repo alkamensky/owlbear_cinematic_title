@@ -1,0 +1,12 @@
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+
+/manifest.json
+  Cache-Control: no-cache
+
+/*.js
+  Cache-Control: no-cache
+
+/*.css
+  Cache-Control: no-cache
