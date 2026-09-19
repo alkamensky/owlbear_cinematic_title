@@ -1,0 +1,16 @@
+{
+  "name": "Cinematic Location Titles",
+  "version": "1.1.0",
+  "manifest_version": 1,
+  "description": "GM-controlled cinematic location titles with a grimdark monochrome scene effect.",
+  "author": "altraboxel",
+  "icon": "/icon.svg",
+  "action": {
+    "title": "Location Title",
+    "icon": "/icon.svg",
+    "popover": "/index.html",
+    "height": 520,
+    "width": 360
+  },
+  "background_url": "/background.html"
+}
